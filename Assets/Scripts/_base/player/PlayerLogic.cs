@@ -5,27 +5,23 @@ using UnityEngine;
 public class PlayerLogic : MonoBehaviour
 {
     float speed = 15.0f; // скорость
-    public Vector3 jump;
-    public float jumpForce = 10.0f;
-    public bool isGrounded;
+    
     Rigidbody rb;
-    float ang = 0.3f;
+
+    private bool isJumping;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 10.0f, 0.0f);
+        isJumping = false;
     }
-    void OnCollisionStay()
-    {
-        isGrounded = true;
-    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
         {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            rb.velocity = new Vector3(0, 10, 0);
+            isJumping = true;
         }
         if (Input.GetKey(KeyCode.W))
         {
@@ -45,5 +41,11 @@ public class PlayerLogic : MonoBehaviour
         }
 
 
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isJumping = false;
     }
 }
