@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerLogic : MonoBehaviour
 {
+    public int score = 0; // кол-во бананов
+    public TextMeshProUGUI textScore;
+
     float speed = 15.0f; // скорость
     
     Rigidbody rb;
@@ -14,6 +19,8 @@ public class PlayerLogic : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isJumping = false;
+
+        
     }
 
     void Update()
@@ -40,7 +47,7 @@ public class PlayerLogic : MonoBehaviour
             transform.Rotate(0, 1, 0);
         }
 
-
+        textScore.text = "" + score.ToString();
     }
 
 
