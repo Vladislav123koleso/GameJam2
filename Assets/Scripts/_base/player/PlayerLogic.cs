@@ -20,7 +20,7 @@ public class PlayerLogic : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isJumping = false;
 
-        
+        updateBananaScore();
     }
 
     void Update()
@@ -47,9 +47,19 @@ public class PlayerLogic : MonoBehaviour
             transform.Rotate(0, 1, 0);
         }
 
-        textScore.text = "" + score.ToString();
+        
     }
 
+
+    public void BananaCollect()
+    {
+        score++;
+        updateBananaScore();
+    }
+    void updateBananaScore()
+    {
+        textScore.text = "" + score.ToString();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
