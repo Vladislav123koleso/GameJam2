@@ -16,7 +16,11 @@ public class PlayerLogic : MonoBehaviour
 
     Rigidbody rb;
 
+    public Camera playerCamera; // Ссылка на камеру
+    public float cameraRotationSpeed = 2.0f; // Скорость вращения камеры
+
     private bool isJumping;
+
 
     void Start()
     {
@@ -28,6 +32,11 @@ public class PlayerLogic : MonoBehaviour
 
     void Update()
     {
+        // Вращение камеры
+        float mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
+        float mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
+
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
         {
