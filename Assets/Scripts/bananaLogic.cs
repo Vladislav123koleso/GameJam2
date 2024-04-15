@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class bananaLogic : MonoBehaviour
 {
-    private PlayerLogic player;
 
+    private bool isCollected = false;
 
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        // Проверка на столкновение с игроком
+        if (other.CompareTag("Player") && !isCollected)
+        {
+            // Находим компонент PlayerLogic на объекте игрока
+            PlayerLogic playerLogic = other.GetComponent<PlayerLogic>();
+
+            // Проверяем, был ли найден компонент PlayerLogic
+            if (playerLogic != null)
+            {
+                playerLogic.BananaCollect();
+            }
+
+            // Помечаем банан как собранный
+            isCollected = true;
+
+            // Уничтожаем банан после сбора
+            Destroy(gameObject);
+        }
     }
 }
