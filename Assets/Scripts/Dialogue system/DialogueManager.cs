@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueManager : SingletonBase<DialogueManager>
@@ -17,6 +19,8 @@ public class DialogueManager : SingletonBase<DialogueManager>
     [SerializeField] private TextMeshProUGUI _text;
 
     [SerializeField] private TextMeshProUGUI _textName;
+
+    public UnityEvent EndDialogueEvent;
 
     private int index = 0;
 
@@ -94,6 +98,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
             {
                 index = 0;
                 DisableDialoguePanel();
+                EndDialogueEvent.Invoke();
             }
             else
             {
@@ -102,6 +107,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
 
                 DrawAnswerButtons();
             }
-        } 
+        }
     }
+
 }
