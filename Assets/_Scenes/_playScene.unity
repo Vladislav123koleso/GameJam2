@@ -228,13 +228,15 @@ GameObject:
   - component: {fileID: 124028626}
   - component: {fileID: 124028625}
   - component: {fileID: 124028624}
+  - component: {fileID: 124028628}
+  - component: {fileID: 124028627}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &124028624
 AudioListener:
   m_ObjectHideFlags: 0
@@ -293,14 +295,270 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124028623}
-  m_LocalRotation: {x: 0.12281043, y: -0, z: -0, w: 0.99243015}
-  m_LocalPosition: {x: 0.6600001, y: 2.4900002, z: -5.1800003}
+  m_LocalRotation: {x: 0, y: 0.99351096, z: -0.11373691, w: 0}
+  m_LocalPosition: {x: 0, y: 2.2899885, z: 4.8706393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1790428400}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 14.109, y: 0, z: 0}
+--- !u!114 &124028627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124028623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b0b8184d49919458a463162bd17ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlledCamera: {fileID: 124028628}
+  _toggleLockOn:
+    m_Name: ToggleLock
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 98475868-194c-490d-9f26-3e79ede95a91
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 13cdd05d-8cb9-4f6f-ab2f-eaafbaca304b
+      m_Path: /Keyboard/t
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleLock
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 22bcbb43-dc6e-404c-98fc-8e1e622b9011
+      m_Path: /XInputControllerWindows/leftTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleLock
+      m_Flags: 0
+    m_Flags: 0
+  _cycleTargets:
+    m_Name: Cycle
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9b7c387d-f879-4ad4-8c58-c810a5e9f072
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6391d8cf-aea5-419f-9fa7-d5429883e08b
+      m_Path: /Keyboard/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Cycle
+      m_Flags: 0
+    m_Flags: 0
+  _cycleRight:
+    m_Name: CycleRight
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 24931721-84c6-436c-acd9-af2b4581262b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0620636c-0050-4450-a18b-86507062feec
+      m_Path: /Keyboard/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleRight
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 79bd1ff8-cf99-44a7-b18d-c52be0f9ca58
+      m_Path: /XInputControllerWindows/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleRight
+      m_Flags: 0
+    m_Flags: 0
+  _cycleLeft:
+    m_Name: CycleLeft
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9b6c1009-cf2b-4854-9daf-bfec5e18e865
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1bf04dc7-b0e1-42df-8032-b1a48dca4e26
+      m_Path: /Keyboard/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleLeft
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 482defc7-e82a-4cf1-99e9-747cd10e7d68
+      m_Path: /XInputControllerWindows/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleLeft
+      m_Flags: 0
+    m_Flags: 0
+  _zoom:
+    m_Name: Zoom
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8039d5bd-fee3-4d76-9d6e-bc49746baea2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4b6858f4-8a02-4e99-bda5-49b44ae58b74
+      m_Path: /Mouse/scroll
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Zoom
+      m_Flags: 0
+    m_Flags: 0
+  _orbit:
+    m_Name: Orbit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cfe71c40-f5b7-4eed-814b-d86c5511e38f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 9603e1f9-1a16-4f63-9fc2-1848cd48f86d
+      m_Path: /Mouse/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Orbit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 725c9240-729f-4e6e-b424-8d357f64f15c
+      m_Path: /XInputControllerWindows/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Orbit
+      m_Flags: 0
+    m_Flags: 0
+  _toggleUi:
+    m_Name: ToggleUi
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 39f08742-6989-4634-b87c-d401b78d28fe
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 89143be5-1c86-4cbd-92b3-ae1e899bef0a
+      m_Path: /Keyboard/u
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleUi
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 59e011ee-bcf2-48be-a8f2-90c6332c9324
+      m_Path: /XInputControllerWindows/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleUi
+      m_Flags: 0
+    m_Flags: 0
+  _reset:
+    m_Name: ResetCamera
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1c2d5335-b167-4474-bdd8-9cb7b24406ee
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fcb72bee-674f-43ec-bdb5-108728647477
+      m_Path: /Keyboard/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ResetCamera
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 1f0a05e4-f922-4d26-9c5b-026d421fb10c
+      m_Path: /XInputControllerWindows/rightStickPress
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ResetCamera
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &124028628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124028623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4b60398aa15df459f3e6809e9286d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followTarget: {fileID: 848896505}
+  _settings:
+    Distance: -5
+    DefaultRotation: {x: 0, y: 0}
+    OrbitEnabled: 1
+    MoveSpeed: 5
+    SnapFactor: 0.75
+    MaxLagDistance: 1
+    RotationSpeed: 30
+    VerticalRotation:
+      Min: -89
+      Max: 89
+    EaseCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    InvertY: 0
+    EnableCollision: 1
+    CollisionLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    EnableZoom: 1
+    ZoomRange:
+      Min: -10
+      Max: -1
+    EnableTargetLock: 1
+    TargetLockIcon: {fileID: 0}
 --- !u!1 &228263432
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +704,7 @@ GameObject:
   - component: {fileID: 243122649}
   - component: {fileID: 243122648}
   - component: {fileID: 243122647}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AnswerButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +825,7 @@ GameObject:
   - component: {fileID: 300263290}
   - component: {fileID: 300263292}
   - component: {fileID: 300263291}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: dialoguePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +907,7 @@ GameObject:
   - component: {fileID: 308843448}
   - component: {fileID: 308843450}
   - component: {fileID: 308843449}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1053,7 +1311,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 124028625}
+  m_Camera: {fileID: 4036685162727314395}
   m_PlaneDistance: 0.4
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1232,7 +1490,7 @@ GameObject:
   - component: {fileID: 559160230}
   - component: {fileID: 559160232}
   - component: {fileID: 559160231}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1709,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &623782620
 GameObject:
@@ -1546,7 +1804,7 @@ GameObject:
   - component: {fileID: 686454170}
   - component: {fileID: 686454169}
   - component: {fileID: 686454168}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AnswerButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,7 +2037,7 @@ GameObject:
   - component: {fileID: 844059115}
   - component: {fileID: 844059117}
   - component: {fileID: 844059116}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: NamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1845,6 +2103,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844059114}
   m_CullTransparentMesh: 1
+--- !u!1 &848896504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848896505}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848896505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848896504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1790428400}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &884017999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,7 +2229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957380573
 GameObject:
@@ -1953,7 +2242,7 @@ GameObject:
   - component: {fileID: 957380574}
   - component: {fileID: 957380576}
   - component: {fileID: 957380575}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2049,7 +2338,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1677576728}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2164,7 +2453,7 @@ GameObject:
   - component: {fileID: 1215915558}
   - component: {fileID: 1215915560}
   - component: {fileID: 1215915559}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2317,7 +2606,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1790428400}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1278098790
 GameObject:
@@ -2408,7 +2697,7 @@ GameObject:
   - component: {fileID: 1578758680}
   - component: {fileID: 1578758679}
   - component: {fileID: 1578758678}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2613,7 +2902,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629921921
 GameObject:
@@ -2666,7 +2955,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646984987
 GameObject:
@@ -2882,7 +3171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1677576728
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2891,7 +3180,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677576727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2901,7 +3190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224, y: -117}
+  m_AnchoredPosition: {x: 118.899994, y: -45.600006}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677576729
@@ -3080,7 +3369,7 @@ GameObject:
   - component: {fileID: 1683579003}
   - component: {fileID: 1683579005}
   - component: {fileID: 1683579004}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3216,7 +3505,7 @@ GameObject:
   - component: {fileID: 1737265186}
   - component: {fileID: 1737265185}
   - component: {fileID: 1737265184}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AnswerButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3423,7 +3712,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1775288985
 MonoBehaviour:
@@ -3580,10 +3869,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 124028626}
   - {fileID: 1270395305}
+  - {fileID: 848896505}
+  - {fileID: 1938116750}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1790428401
 MonoBehaviour:
@@ -3599,9 +3889,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   textScore: {fileID: 1194507444}
+  speed: 15
   jumpHeight: 10
-  playerCamera: {fileID: 0}
-  cameraRotationSpeed: 2
 --- !u!136 &1790428402
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3671,13 +3960,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911383667}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1109086c567a39a45b184b040f3b7b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 623782620}
-  settingsPanel: {fileID: 0}
 --- !u!4 &1911383669
 Transform:
   m_ObjectHideFlags: 0
@@ -3691,8 +3979,105 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1938116749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938116750}
+  - component: {fileID: 1938116753}
+  - component: {fileID: 1938116752}
+  - component: {fileID: 1938116751}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1938116750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938116749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.018, y: 0.551, z: 0.411}
+  m_LocalScale: {x: 0.64, y: 0.05, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1790428400}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1938116751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938116749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1938116752
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938116749}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1938116753
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938116749}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1989428618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,7 +4089,7 @@ GameObject:
   - component: {fileID: 1989428619}
   - component: {fileID: 1989428621}
   - component: {fileID: 1989428620}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3828,3 +4213,354 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989428618}
   m_CullTransparentMesh: 1
+--- !u!114 &20566229213912894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055929309855145291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b0b8184d49919458a463162bd17ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlledCamera: {fileID: 427229399082361532}
+  _toggleLockOn:
+    m_Name: ToggleLock
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 98475868-194c-490d-9f26-3e79ede95a91
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 13cdd05d-8cb9-4f6f-ab2f-eaafbaca304b
+      m_Path: /Keyboard/t
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleLock
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 22bcbb43-dc6e-404c-98fc-8e1e622b9011
+      m_Path: /XInputControllerWindows/leftTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleLock
+      m_Flags: 0
+    m_Flags: 0
+  _cycleTargets:
+    m_Name: Cycle
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9b7c387d-f879-4ad4-8c58-c810a5e9f072
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6391d8cf-aea5-419f-9fa7-d5429883e08b
+      m_Path: /Keyboard/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Cycle
+      m_Flags: 0
+    m_Flags: 0
+  _cycleRight:
+    m_Name: CycleRight
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 24931721-84c6-436c-acd9-af2b4581262b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0620636c-0050-4450-a18b-86507062feec
+      m_Path: /Keyboard/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleRight
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 79bd1ff8-cf99-44a7-b18d-c52be0f9ca58
+      m_Path: /XInputControllerWindows/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleRight
+      m_Flags: 0
+    m_Flags: 0
+  _cycleLeft:
+    m_Name: CycleLeft
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9b6c1009-cf2b-4854-9daf-bfec5e18e865
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1bf04dc7-b0e1-42df-8032-b1a48dca4e26
+      m_Path: /Keyboard/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleLeft
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 482defc7-e82a-4cf1-99e9-747cd10e7d68
+      m_Path: /XInputControllerWindows/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: CycleLeft
+      m_Flags: 0
+    m_Flags: 0
+  _zoom:
+    m_Name: Zoom
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8039d5bd-fee3-4d76-9d6e-bc49746baea2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4b6858f4-8a02-4e99-bda5-49b44ae58b74
+      m_Path: /Mouse/scroll
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Zoom
+      m_Flags: 0
+    m_Flags: 0
+  _orbit:
+    m_Name: Orbit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cfe71c40-f5b7-4eed-814b-d86c5511e38f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 9603e1f9-1a16-4f63-9fc2-1848cd48f86d
+      m_Path: /Mouse/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Orbit
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 725c9240-729f-4e6e-b424-8d357f64f15c
+      m_Path: /XInputControllerWindows/rightStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Orbit
+      m_Flags: 0
+    m_Flags: 0
+  _toggleUi:
+    m_Name: ToggleUi
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 39f08742-6989-4634-b87c-d401b78d28fe
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 89143be5-1c86-4cbd-92b3-ae1e899bef0a
+      m_Path: /Keyboard/u
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleUi
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 59e011ee-bcf2-48be-a8f2-90c6332c9324
+      m_Path: /XInputControllerWindows/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ToggleUi
+      m_Flags: 0
+    m_Flags: 0
+  _reset:
+    m_Name: ResetCamera
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1c2d5335-b167-4474-bdd8-9cb7b24406ee
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fcb72bee-674f-43ec-bdb5-108728647477
+      m_Path: /Keyboard/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ResetCamera
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 1f0a05e4-f922-4d26-9c5b-026d421fb10c
+      m_Path: /XInputControllerWindows/rightStickPress
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: ResetCamera
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &427229399082361532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055929309855145291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4b60398aa15df459f3e6809e9286d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followTarget: {fileID: 848896505}
+  _settings:
+    Distance: -5
+    DefaultRotation: {x: 0, y: 0}
+    OrbitEnabled: 1
+    MoveSpeed: 15
+    SnapFactor: 0.75
+    MaxLagDistance: 1
+    RotationSpeed: 300
+    VerticalRotation:
+      Min: -89
+      Max: 89
+    EaseCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -2.6403704
+        outSlope: -2.6403704
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037516177
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    InvertY: 1
+    EnableCollision: 1
+    CollisionLayer:
+      serializedVersion: 2
+      m_Bits: 32768
+    EnableZoom: 1
+    ZoomRange:
+      Min: -10
+      Max: -1
+    EnableTargetLock: 1
+    TargetLockIcon: {fileID: 0}
+--- !u!20 &4036685162727314395
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055929309855145291}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.03
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!1 &4055929309855145291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4061309984030661549}
+  - component: {fileID: 4036685162727314395}
+  - component: {fileID: 4176608922437011213}
+  - component: {fileID: 4138499512433914147}
+  - component: {fileID: 427229399082361532}
+  - component: {fileID: 20566229213912894}
+  m_Layer: 0
+  m_Name: EazyCamera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4061309984030661549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055929309855145291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.16, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -11.402, y: 4.321, z: 0}
+--- !u!81 &4138499512433914147
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055929309855145291}
+  m_Enabled: 1
+--- !u!124 &4176608922437011213
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055929309855145291}
+  m_Enabled: 1

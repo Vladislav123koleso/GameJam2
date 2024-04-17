@@ -2,43 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class PlayerLogic : MonoBehaviour
 {
-    public int score = 0; // кол-во бананов
+    public int score = 0; // Количество бананов
     public TextMeshProUGUI textScore;
 
-    float speed = 15.0f; // скорость
-    float rotationSpeed = 120.0f; // скорость поворота
+    public float speed = 15.0f; // Скорость движения
+    public float jumpHeight = 10.0f; // Высота прыжка
 
-    public float jumpHeight = 10.0f; // высота прыжка
-
-    Rigidbody rb;
-
-    public Camera playerCamera; // Ссылка на камеру
-    public float cameraRotationSpeed = 2.0f; // Скорость вращения камеры
-
+    private Rigidbody rb;
     private bool isJumping;
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         isJumping = false;
 
-        updateBananaScore();
+        UpdateBananaScore();
     }
 
     void Update()
     {
-        // Вращение камеры
-        float mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
+        // Получаем ввод от игрока
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
+        // Определяем направление движения
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
+        // Проверяем, если есть движение
+        if (movement != Vector3.zero)
+        {
+            // Поворачиваем персонаж в сторону движения
+            transform.rotation = Quaternion.LookRotation(movement);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
+            // Нормализуем вектор движения, чтобы движение в диагональных направлениях не было быстрее
+            movement = movement.normalized;
+
+            // Перемещаем персонаж
+            transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        }
+
+        // Обработка прыжка
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             rb.velocity = new Vector3(0, CalculateJumpSpeed(), 0);
             isJumping = true;
@@ -48,25 +55,6 @@ public class PlayerLogic : MonoBehaviour
             // Увеличиваем скорость падения
             rb.velocity += Vector3.down * 40 * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(-1 * Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            // Плавный поворот влево
-            transform.Rotate(Vector3.up * Time.deltaTime * -rotationSpeed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            // Плавный поворот вправо
-            transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
-        }
-
     }
 
     float CalculateJumpSpeed()
@@ -77,16 +65,15 @@ public class PlayerLogic : MonoBehaviour
         return jumpSpeed;
     }
 
-
     public void BananaCollect()
     {
         score++;
-        updateBananaScore();
+        UpdateBananaScore();
     }
 
-    void updateBananaScore()
+    void UpdateBananaScore()
     {
-        textScore.text = "" + score.ToString();
+        textScore.text = score.ToString();
     }
 
     private void OnCollisionEnter(Collision collision)
