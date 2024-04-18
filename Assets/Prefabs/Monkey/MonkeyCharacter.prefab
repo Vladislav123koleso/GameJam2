@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6086092347332223236}
   - component: {fileID: 376573507}
   - component: {fileID: 376573506}
+  - component: {fileID: -4258464171821549034}
   m_Layer: 0
   m_Name: MonkeyCharacter
   m_TagString: Untagged
@@ -75,6 +76,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogList: []
+--- !u!95 &-4258464171821549034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281959815468083915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 6cf3eb37dab35264c981ed6be554a5db, type: 3}
+  m_Controller: {fileID: 9100000, guid: 70b9a2b31732f4c4e9562bb870dbaab0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &7728021056454758044
 PrefabInstance:
   m_ObjectHideFlags: 0
