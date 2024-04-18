@@ -15,11 +15,4 @@ public class Character : MonoBehaviour
     [SerializeField] private string _name;
     public string Nickname => _name;
 
-    private Animator animator;
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-        animator.Play("jump");
-    }
 }
