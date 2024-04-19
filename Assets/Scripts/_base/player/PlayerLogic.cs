@@ -22,8 +22,12 @@ public class PlayerLogic : MonoBehaviour
     private bool isJumping;
     private bool isMooving;
 
+    private Animator animator;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody>();
         isJumping = false;
         jumpForce *= rb.mass;
@@ -41,15 +45,23 @@ public class PlayerLogic : MonoBehaviour
         float movementDir = Input.GetAxisRaw("Vertical");
         float rotatiomDir = Input.GetAxisRaw("Horizontal");
 
+        Vector3 movement = transform.forward * movementDir * speed;
         Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
 
         if (Input.GetAxisRaw("Jump") > 0 && !isJumping)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
+            animator.SetTrigger("jump");
         }
 
-        rb.velocity = transform.forward * movementDir * speed + gravity;
+        if (movementDir != 0)
+        {
+            animator.SetBool("run", true);
+        }
+        else animator.SetBool("run", false);
+
+        rb.velocity = movement + gravity;
         transform.Rotate(Vector3.up * Time.fixedDeltaTime * rotatiomDir * rotationSpeed);
 
     }
