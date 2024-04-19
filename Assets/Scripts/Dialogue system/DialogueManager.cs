@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -22,6 +21,10 @@ public class DialogueManager : SingletonBase<DialogueManager>
 
     public UnityEvent EndDialogueEvent;
 
+    public UnityEvent StartDialogueEvent;
+
+    public UnityEvent ExitDialogueEvent;
+
     private int index = 0;
 
     private void Start()
@@ -33,7 +36,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
             buttonComponent.onClick.AddListener(NextDialogue);
         }
 
-        _exitButton.onClick.AddListener(DisableDialoguePanel);
+        _exitButton.onClick.AddListener(ExitDisableDialoguePanel);
     }
 
     private void Update()
@@ -62,14 +65,16 @@ public class DialogueManager : SingletonBase<DialogueManager>
         }
     }
 
-    public void DisableDialoguePanel()
+    public void ExitDisableDialoguePanel()
     {
+        ExitDialogueEvent.Invoke();
         _dialoguePanel.SetActive(false);
         index = 0;
     }
 
     public void StartDialogue(List<Dialog> currentDialogs, string NameCharacter)
     {
+        StartDialogueEvent.Invoke();
         index = 0;
         _dialogCurrentList = currentDialogs;
         _textName.text = NameCharacter;
@@ -97,8 +102,8 @@ public class DialogueManager : SingletonBase<DialogueManager>
             if (index + 1 >= _dialogCurrentList.Count)
             {
                 index = 0;
-                DisableDialoguePanel();
                 EndDialogueEvent.Invoke();
+                ExitDisableDialoguePanel();
             }
             else
             {
@@ -109,5 +114,10 @@ public class DialogueManager : SingletonBase<DialogueManager>
             }
         }
     }
+
+/*    public void SubscriptionStartDialogueEvent(UnityAction action)
+    {
+        StartDialogueEvent.AddListener(action);
+    }*/
 
 }
