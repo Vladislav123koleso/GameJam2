@@ -7,6 +7,24 @@ public class GameManager : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject settingsPanel;
+
+    public static GameManager Instance { get; private set; }
+
+    private bool canFlipCard = true; // ‘лаг,можно ли переворачивать карты
+    private List<cardLogic> flippedCards = new List<cardLogic>(); // —писок перевернутых карт
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // ”ничтожаем дублирующиес€ экземпл€ры
+        }
+    }
+
     private void Start()
     {
         pausePanel.SetActive(false);
@@ -14,7 +32,25 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public bool CanFlipCard()
+    {
+        return canFlipCard;
+    }
 
+    public void SetCanFlipCard(bool value)
+    {
+        canFlipCard = value;
+    }
+
+
+    // ћетод дл€ добавлени€ перевернутой карты в список
+    public void AddFlippedCard(cardLogic card)
+    {
+        flippedCards.Add(card);
+    }
+
+
+    //-----------
     public void continueButton()
     {
         // продолжаем игру
