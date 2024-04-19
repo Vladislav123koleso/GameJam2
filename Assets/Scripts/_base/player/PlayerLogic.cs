@@ -11,16 +11,15 @@ public class PlayerLogic : MonoBehaviour
 
     [SerializeField] private float speed = 150.0f; // скорость
     [SerializeField] private float rotationSpeed = 120.0f; // скорость поворота
-
     [SerializeField] private float jumpForce = 10.0f; // высота прыжка
 
     Rigidbody rb;
 
     public Camera playerCamera; // Ссылка на камеру
-    public float cameraRotationSpeed = 2.0f; // Скорость вращения камеры
-
+    [SerializeField] private float cameraRotationSpeed = 2.0f; // Скорость вращения камеры
+    private float mouseX;
+    private float mouseY;
     private bool isJumping;
-    private bool isMooving;
 
     private Animator animator;
 
@@ -34,13 +33,14 @@ public class PlayerLogic : MonoBehaviour
         updateBananaScore();
     }
 
+    private void Update()
+    {
+        mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
+        mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
+    }
+
     void FixedUpdate()
     {
-        isMooving = false;
-
-        // Вращение камеры
-        float mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
 
         float movementDir = Input.GetAxisRaw("Vertical");
         float rotatiomDir = Input.GetAxisRaw("Horizontal");
@@ -63,7 +63,6 @@ public class PlayerLogic : MonoBehaviour
 
         rb.velocity = movement + gravity;
         transform.Rotate(Vector3.up * Time.fixedDeltaTime * rotatiomDir * rotationSpeed);
-
     }
 
     public void BananaCollect()
