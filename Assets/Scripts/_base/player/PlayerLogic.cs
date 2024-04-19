@@ -9,74 +9,61 @@ public class PlayerLogic : MonoBehaviour
     public int score = 0; // кол-во бананов
     public TextMeshProUGUI textScore;
 
-    float speed = 15.0f; // скорость
-    float rotationSpeed = 120.0f; // скорость поворота
-
-    public float jumpHeight = 10.0f; // высота прыжка
+    [SerializeField] private float speed = 150.0f; // скорость
+    [SerializeField] private float rotationSpeed = 120.0f; // скорость поворота
+    [SerializeField] private float jumpForce = 10.0f; // высота прыжка
 
     Rigidbody rb;
 
     public Camera playerCamera; // Ссылка на камеру
-    public float cameraRotationSpeed = 2.0f; // Скорость вращения камеры
-
+    [SerializeField] private float cameraRotationSpeed = 2.0f; // Скорость вращения камеры
+    private float mouseX;
+    private float mouseY;
     private bool isJumping;
 
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody>();
         isJumping = false;
-
+        jumpForce *= rb.mass;
         updateBananaScore();
     }
 
-    void Update()
+    private void Update()
     {
-        // Вращение камеры
-        float mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
+        mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
+        mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
+    }
 
+    void FixedUpdate()
+    {
 
+        float movementDir = Input.GetAxisRaw("Vertical");
+        float rotatiomDir = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
+        Vector3 movement = transform.forward * movementDir * speed;
+        Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
+
+        if (Input.GetAxisRaw("Jump") > 0 && !isJumping)
         {
-            rb.velocity = new Vector3(0, CalculateJumpSpeed(), 0);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
-        }
-        if (isJumping)
-        {
-            // Увеличиваем скорость падения
-            rb.velocity += Vector3.down * 40 * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(-1 * Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            // Плавный поворот влево
-            transform.Rotate(Vector3.up * Time.deltaTime * -rotationSpeed);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            // Плавный поворот вправо
-            transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
+            animator.SetTrigger("jump");
         }
 
+        if (movementDir != 0)
+        {
+            animator.SetBool("run", true);
+        }
+        else animator.SetBool("run", false);
+
+        rb.velocity = movement + gravity;
+        transform.Rotate(Vector3.up * Time.fixedDeltaTime * rotatiomDir * rotationSpeed);
     }
-
-    float CalculateJumpSpeed()
-    {
-        // Рассчитываем скорость прыжка на основе заданной высоты
-        float gravity = Physics.gravity.magnitude;
-        float jumpSpeed = Mathf.Sqrt(2 * gravity * jumpHeight);
-        return jumpSpeed;
-    }
-
 
     public void BananaCollect()
     {
