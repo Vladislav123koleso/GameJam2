@@ -184,7 +184,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Monkey
+  m_Name: MonkeyPlayer
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: jump
@@ -192,19 +192,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: run
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: talk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -387,9 +387,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 5.4500637
-  m_TransitionOffset: 0.06316737
-  m_ExitTime: 0.030803548
+  m_TransitionDuration: 0.20306587
+  m_TransitionOffset: 0
+  m_ExitTime: 0.97945213
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

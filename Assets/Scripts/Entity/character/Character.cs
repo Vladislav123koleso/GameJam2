@@ -19,6 +19,21 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
     }
+
+    public void AnimationPlayTalk()
+    {
+        animator.SetBool("talk", true);
+    }
+    public void AnimationPlayIdle()
+    {
+        animator.SetBool("talk", false);
+    }
+
+    public void AnimationPlayJump()
+    {
+        animator.SetTrigger("jump");
+    }
+
 }
