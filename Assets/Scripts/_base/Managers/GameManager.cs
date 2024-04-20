@@ -6,31 +6,37 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject settingsPanel;
-    private void Start()
-    {
-        pausePanel.SetActive(false);
-        settingsPanel.SetActive(false);
+    public static GameManager Instance { get; private set; }
 
+    private bool canFlipCard = true; // ‘лаг,можно ли переворачивать карты
+    private List<cardLogic> flippedCards = new List<cardLogic>(); // —писок перевернутых карт
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // ”ничтожаем дублирующиес€ экземпл€ры
+        }
+    }
+    public bool CanFlipCard()
+    {
+        return canFlipCard;
+    }
+
+    public void SetCanFlipCard(bool value)
+    {
+        canFlipCard = value;
     }
 
 
-    public void continueButton()
+    // ћетод дл€ добавлени€ перевернутой карты в список
+    public void AddFlippedCard(cardLogic card)
     {
-        // продолжаем игру
-        Time.timeScale = 1;
-        pausePanel.SetActive(false);
-    }
-
-    public void settingsButton()
-    {
-        // открытие настроек
-    }
-
-    public void exitButton()
-    {
-        // выход в главное меню
-        SceneManager.LoadScene(0);
+        flippedCards.Add(card);
     }
 
     private void Update()
