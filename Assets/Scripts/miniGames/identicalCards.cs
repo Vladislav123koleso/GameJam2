@@ -154,6 +154,23 @@ public class identicalCards : MonoBehaviour
             {
                 // Создаем новую карту из префаба
                 GameObject newMap = Instantiate(mapPrefab, gridContainer.transform);
+
+                // Получаем компонент cardLogic
+                cardLogic cardScript = newMap.GetComponent<cardLogic>();
+
+                // Проверяем, что компонент cardLogic был найден и у нас есть карты для создания
+                if (cardScript != null && cards.Count > 0)
+                {
+                    // Получаем следующую карту из списка
+                    Card nextCard = cards[0];
+
+                    // Устанавливаем эту карту для компонента cardLogic
+                    cardScript.card = nextCard;
+
+                    // Удаляем эту карту из списка, чтобы она больше не использовалась
+                    cards.RemoveAt(0);
+                }
+
                 Debug.Log("Card Created: " + newMap.name);
             }
         }

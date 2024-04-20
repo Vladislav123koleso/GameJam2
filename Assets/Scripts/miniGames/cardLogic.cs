@@ -54,11 +54,12 @@ public class cardLogic : MonoBehaviour
 
     private bool isFlipped = false; // Флаг, указывающий, перевернута ли карта
     private bool isClickable = true; // Флаг, указывающий, можно ли кликнуть на карту
+    private CardManager cardManager;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        cardManager = FindObjectOfType<CardManager>();
         /*cardImage = GetComponent<Image>();
         if(cardImage == null)
         {
@@ -70,22 +71,14 @@ public class cardLogic : MonoBehaviour
     {
         Debug.Log("Mouse down event detected on card.");
 
-
         // Проверяем, можно ли кликнуть на карту и перевернуть её
-        if (!isClickable || !GameManager.Instance.CanFlipCard())
+        if (!isClickable || cardManager.CountFlippedCards() >= 2 || isFlipped)
         {
             return;
         }
 
-        // Переворачиваем карту
         FlipCard();
-
-        // Обработка логики игры
-
-        if (GameManager.Instance.CanFlipCard())
-        {
-             GameManager.Instance.AddFlippedCard(this);
-        }
+        cardManager.AddFlippedCard(this);
     }
 
     // Метод для переворота карты
@@ -94,14 +87,11 @@ public class cardLogic : MonoBehaviour
         if (!isFlipped)
         {
             spriteRenderer.sprite = card.frontSprite; // Показываем лицевую сторону
-            //cardImage.color = card.frontColor;
             Debug.Log("Card flipped to front.");
         }
         else
         {
-            // Скрытие лицевой стороны, показываем рубашку
-            spriteRenderer.sprite = backSprite/*спрайт рубашки*/;
-            //cardImage.color = backColor;
+            spriteRenderer.sprite = backSprite; // Показываем рубашку
             Debug.Log("Card flipped to back.");
         }
 
