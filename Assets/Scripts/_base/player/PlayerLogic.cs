@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerLogic : MonoBehaviour
 {
-    public int score = 0; // кол-во бананов
-    public TextMeshProUGUI textScore;
-
     [SerializeField] private float speed = 150.0f; // скорость
     [SerializeField] private float rotationSpeed = 120.0f; // скорость поворота
     [SerializeField] private float jumpForce = 10.0f; // высота прыжка
@@ -30,7 +27,6 @@ public class PlayerLogic : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isJumping = false;
         jumpForce *= rb.mass;
-        updateBananaScore();
     }
 
     private void Update()
@@ -65,16 +61,7 @@ public class PlayerLogic : MonoBehaviour
         transform.Rotate(Vector3.up * Time.fixedDeltaTime * rotatiomDir * rotationSpeed);
     }
 
-    public void BananaCollect()
-    {
-        score++;
-        updateBananaScore();
-    }
 
-    void updateBananaScore()
-    {
-        textScore.text = "" + score.ToString();
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

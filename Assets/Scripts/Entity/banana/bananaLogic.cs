@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class bananaLogic : MonoBehaviour
 {
-
     private bool isCollected = false;
-
     private void OnTriggerEnter(Collider other)
     {
         // Проверка на столкновение с игроком
@@ -18,7 +16,7 @@ public class bananaLogic : MonoBehaviour
             // Проверяем, был ли найден компонент PlayerLogic
             if (playerLogic != null)
             {
-                playerLogic.BananaCollect();
+                ScoreManager.Instance.AddCurrentCountBananas();
             }
 
             // Помечаем банан как собранный
