@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject settingsPanel;
-
     public static GameManager Instance { get; private set; }
 
     private bool canFlipCard = true; // ‘лаг,можно ли переворачивать карты
@@ -24,14 +22,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject); // ”ничтожаем дублирующиес€ экземпл€ры
         }
     }
-
-    private void Start()
-    {
-        pausePanel.SetActive(false);
-        settingsPanel.SetActive(false);
-
-    }
-
     public bool CanFlipCard()
     {
         return canFlipCard;
@@ -47,26 +37,6 @@ public class GameManager : MonoBehaviour
     public void AddFlippedCard(cardLogic card)
     {
         flippedCards.Add(card);
-    }
-
-
-    //-----------
-    public void continueButton()
-    {
-        // продолжаем игру
-        Time.timeScale = 1;
-        pausePanel.SetActive(false);
-    }
-
-    public void settingsButton()
-    {
-        // открытие настроек
-    }
-
-    public void exitButton()
-    {
-        // выход в главное меню
-        SceneManager.LoadScene(0);
     }
 
     private void Update()

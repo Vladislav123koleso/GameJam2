@@ -22,6 +22,9 @@ public class ScoreManager : SingletonBase<ScoreManager>
     [SerializeField] private float notificationPanelShowTime;
     [SerializeField] private float bananasPanelShowTime;
 
+    private bool secretCustomOpen = false;
+    public bool SecretCustomOpen => secretCustomOpen;
+
     private void Start()
     {
         notificationPanel.SetActive(false);
@@ -35,6 +38,7 @@ public class ScoreManager : SingletonBase<ScoreManager>
     {
         if (currentCountBananas >= allBananas)
         {
+            secretCustomOpen = true;
             if (!notificationShow)
             {
                 notificationPanel.SetActive(true);
@@ -44,6 +48,7 @@ public class ScoreManager : SingletonBase<ScoreManager>
                     notificationShow = true;
                     notificationPanel.SetActive(false);
                     timer = 0;
+                  
                 }
             }
 
