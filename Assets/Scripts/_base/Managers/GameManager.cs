@@ -49,26 +49,6 @@ public class GameManager : MonoBehaviour
         flippedCards.Add(card);
     }
 
-
-    //-----------
-    public void continueButton()
-    {
-        // продолжаем игру
-        Time.timeScale = 1;
-        pausePanel.SetActive(false);
-    }
-
-    public void settingsButton()
-    {
-        // открытие настроек
-    }
-
-    public void exitButton()
-    {
-        // выход в главное меню
-        SceneManager.LoadScene(0);
-    }
-
     private void Update()
     {
         //  если нажат ESC мы останавливаем игру

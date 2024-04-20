@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 /*public class Card
 {
-    //public Sprite frontSprite; // Спрайт лицевой стороны карты
+    //public Sprite frontSprite; // РЎРїСЂР°Р№С‚ Р»РёС†РµРІРѕР№ СЃС‚РѕСЂРѕРЅС‹ РєР°СЂС‚С‹
     public Color frontColor;
-    public bool isMatched; // Флаг, указывающий, совпала ли карта с другой
-    public int matchesCount; // Счетчик совпадений с другими картами
+    public bool isMatched; // Р¤Р»Р°Рі, СѓРєР°Р·С‹РІР°СЋС‰РёР№, СЃРѕРІРїР°Р»Р° Р»Рё РєР°СЂС‚Р° СЃ РґСЂСѓРіРѕР№
+    public int matchesCount; // РЎС‡РµС‚С‡РёРє СЃРѕРІРїР°РґРµРЅРёР№ СЃ РґСЂСѓРіРёРјРё РєР°СЂС‚Р°РјРё
 
     *//*public Card(Sprite frontSprite)
     {
@@ -33,42 +33,42 @@ using UnityEngine.UI;
 
 public class identicalCards : MonoBehaviour
 {
-    public GameObject mapPrefab; // Префаб карты
-    public RectTransform panel; // Панель, на которой будут располагаться карты
+    public GameObject mapPrefab; // РџСЂРµС„Р°Р± РєР°СЂС‚С‹
+    public RectTransform panel; // РџР°РЅРµР»СЊ, РЅР° РєРѕС‚РѕСЂРѕР№ Р±СѓРґСѓС‚ СЂР°СЃРїРѕР»Р°РіР°С‚СЊСЃСЏ РєР°СЂС‚С‹
 
-    public GameObject gridContainer; // Пустой объект с компонентом Grid Layout Group
+    public GameObject gridContainer; // РџСѓСЃС‚РѕР№ РѕР±СЉРµРєС‚ СЃ РєРѕРјРїРѕРЅРµРЅС‚РѕРј Grid Layout Group
 
-    public List<Sprite> frontSprites; // Список спрайтов лицевых сторон карт
-    //public List<Color> frontColors; // Список цветов лицевых сторон карт
+    public List<Sprite> frontSprites; // РЎРїРёСЃРѕРє СЃРїСЂР°Р№С‚РѕРІ Р»РёС†РµРІС‹С… СЃС‚РѕСЂРѕРЅ РєР°СЂС‚
+    //public List<Color> frontColors; // РЎРїРёСЃРѕРє С†РІРµС‚РѕРІ Р»РёС†РµРІС‹С… СЃС‚РѕСЂРѕРЅ РєР°СЂС‚
 
-    private int currentLevel; // Текущий уровень игрока
+    private int currentLevel; // РўРµРєСѓС‰РёР№ СѓСЂРѕРІРµРЅСЊ РёРіСЂРѕРєР°
 
     void Start()
     {
-        // Получаем текущий уровень 
+        // РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РёР№ СѓСЂРѕРІРµРЅСЊ 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
 
-        Debug.Log("Current level: " + currentLevel); // Отладочный вывод
+        Debug.Log("Current level: " + currentLevel); // РћС‚Р»Р°РґРѕС‡РЅС‹Р№ РІС‹РІРѕРґ
 
-        // Генерация карт на панели в зависимости от уровня
+        // Р“РµРЅРµСЂР°С†РёСЏ РєР°СЂС‚ РЅР° РїР°РЅРµР»Рё РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СѓСЂРѕРІРЅСЏ
         GenerateMapForLevel(currentLevel);
     }
 
     
 
-    // Генерация карт на панели в зависимости от уровня
+    // Р“РµРЅРµСЂР°С†РёСЏ РєР°СЂС‚ РЅР° РїР°РЅРµР»Рё РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СѓСЂРѕРІРЅСЏ
     private void GenerateMapForLevel(int level)
     {
         int rows = 0;
         int columns = 0;
         int totalCards = 0;
 
-        //параметры сетки
+        //РїР°СЂР°РјРµС‚СЂС‹ СЃРµС‚РєРё
         float spacingX = 0f;
         float spacingY = 0f;
         RectOffset padding = new RectOffset();
 
-        // Определение количества строк и столбцов карт в зависимости от уровня
+        // РћРїСЂРµРґРµР»РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚СЂРѕРє Рё СЃС‚РѕР»Р±С†РѕРІ РєР°СЂС‚ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СѓСЂРѕРІРЅСЏ
         switch (level)
         {
             case 2:
@@ -97,26 +97,26 @@ public class identicalCards : MonoBehaviour
                 return;
         }
 
-        Debug.Log("Rows: " + rows + ", Columns: " + columns); // Отладочный вывод
+        Debug.Log("Rows: " + rows + ", Columns: " + columns); // РћС‚Р»Р°РґРѕС‡РЅС‹Р№ РІС‹РІРѕРґ
 
-        // Устанавливаем количество карт в зависимости от строк и столбцов
+        // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СЃС‚СЂРѕРє Рё СЃС‚РѕР»Р±С†РѕРІ
         totalCards = rows * columns;
         Debug.Log("Total Cards: " + totalCards);
 
-        // Проверка наличия достаточного количества спрайтов
+        // РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° СЃРїСЂР°Р№С‚РѕРІ
         if ( /*frontColors.Count*/frontSprites.Count < totalCards / 2)
         {
             Debug.LogError("Not enough front sprites for the level!");
             return;
         }
 
-        // Удаляем все дочерние объекты сетки перед генерацией новых
+        // РЈРґР°Р»СЏРµРј РІСЃРµ РґРѕС‡РµСЂРЅРёРµ РѕР±СЉРµРєС‚С‹ СЃРµС‚РєРё РїРµСЂРµРґ РіРµРЅРµСЂР°С†РёРµР№ РЅРѕРІС‹С…
         foreach (Transform child in gridContainer.transform)
         {
             Destroy(child.gameObject);
         }
 
-        // Получаем компонент Grid Layout Group
+        // РџРѕР»СѓС‡Р°РµРј РєРѕРјРїРѕРЅРµРЅС‚ Grid Layout Group
         GridLayoutGroup gridLayoutGroup = gridContainer.GetComponent<GridLayoutGroup>();
         if (gridLayoutGroup == null)
         {
@@ -124,14 +124,14 @@ public class identicalCards : MonoBehaviour
             return;
         }
 
-        // Устанавливаем параметры Grid Layout Group
+        // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ Grid Layout Group
         gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         gridLayoutGroup.constraintCount = columns;
         gridLayoutGroup.spacing = new Vector2(spacingX, spacingY);
         gridLayoutGroup.padding = padding;
 
 
-        // Создание списка карт
+        // РЎРѕР·РґР°РЅРёРµ СЃРїРёСЃРєР° РєР°СЂС‚
         List<Card> cards = new List<Card>();
         for (int i = 0; i < totalCards / 2; i++)
         {
@@ -140,34 +140,34 @@ public class identicalCards : MonoBehaviour
             Debug.Log("Front color for card " + i + ": " + frontSprite);
 
             cards.Add(new Card(/*frontColor*/frontSprite));
-            cards.Add(new Card(/*frontColor*/frontSprite)); // Добавляем две карты с одинаковой лицевой стороной
+            cards.Add(new Card(/*frontColor*/frontSprite)); // Р”РѕР±Р°РІР»СЏРµРј РґРІРµ РєР°СЂС‚С‹ СЃ РѕРґРёРЅР°РєРѕРІРѕР№ Р»РёС†РµРІРѕР№ СЃС‚РѕСЂРѕРЅРѕР№
         }
 
-        // Перемешивание списка карт
+        // РџРµСЂРµРјРµС€РёРІР°РЅРёРµ СЃРїРёСЃРєР° РєР°СЂС‚
         Shuffle(cards);
         Debug.Log("Cards Shuffled");
 
-        // Создание карт в сетке
+        // РЎРѕР·РґР°РЅРёРµ РєР°СЂС‚ РІ СЃРµС‚РєРµ
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                // Создаем новую карту из префаба
+                // РЎРѕР·РґР°РµРј РЅРѕРІСѓСЋ РєР°СЂС‚Сѓ РёР· РїСЂРµС„Р°Р±Р°
                 GameObject newMap = Instantiate(mapPrefab, gridContainer.transform);
 
-                // Получаем компонент cardLogic
+                // РџРѕР»СѓС‡Р°РµРј РєРѕРјРїРѕРЅРµРЅС‚ cardLogic
                 cardLogic cardScript = newMap.GetComponent<cardLogic>();
 
-                // Проверяем, что компонент cardLogic был найден и у нас есть карты для создания
+                // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РєРѕРјРїРѕРЅРµРЅС‚ cardLogic Р±С‹Р» РЅР°Р№РґРµРЅ Рё Сѓ РЅР°СЃ РµСЃС‚СЊ РєР°СЂС‚С‹ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ
                 if (cardScript != null && cards.Count > 0)
                 {
-                    // Получаем следующую карту из списка
+                    // РџРѕР»СѓС‡Р°РµРј СЃР»РµРґСѓСЋС‰СѓСЋ РєР°СЂС‚Сѓ РёР· СЃРїРёСЃРєР°
                     Card nextCard = cards[0];
 
-                    // Устанавливаем эту карту для компонента cardLogic
+                    // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЌС‚Сѓ РєР°СЂС‚Сѓ РґР»СЏ РєРѕРјРїРѕРЅРµРЅС‚Р° cardLogic
                     cardScript.card = nextCard;
 
-                    // Удаляем эту карту из списка, чтобы она больше не использовалась
+                    // РЈРґР°Р»СЏРµРј СЌС‚Сѓ РєР°СЂС‚Сѓ РёР· СЃРїРёСЃРєР°, С‡С‚РѕР±С‹ РѕРЅР° Р±РѕР»СЊС€Рµ РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°Р»Р°СЃСЊ
                     cards.RemoveAt(0);
                 }
 

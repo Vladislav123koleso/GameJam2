@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class Card
 {
-    public Sprite frontSprite; // Спрайт лицевой стороны карты
+    public Sprite frontSprite; // РЎРїСЂР°Р№С‚ Р»РёС†РµРІРѕР№ СЃС‚РѕСЂРѕРЅС‹ РєР°СЂС‚С‹
     //public Color frontColor;
-    public bool isMatched; // Флаг, указывающий, совпала ли карта с другой
-    public int matchesCount; // Счетчик совпадений с другими картами
+    public bool isMatched; // Р¤Р»Р°Рі, СѓРєР°Р·С‹РІР°СЋС‰РёР№, СЃРѕРІРїР°Р»Р° Р»Рё РєР°СЂС‚Р° СЃ РґСЂСѓРіРѕР№
+    public int matchesCount; // РЎС‡РµС‚С‡РёРє СЃРѕРІРїР°РґРµРЅРёР№ СЃ РґСЂСѓРіРёРјРё РєР°СЂС‚Р°РјРё
 
     /*public Card(Sprite frontSprite)
     {
@@ -43,17 +43,17 @@ public class Card
 
 public class cardLogic : MonoBehaviour
 {
-    public Card card; // Ссылка на объект карты
+    public Card card; // РЎСЃС‹Р»РєР° РЅР° РѕР±СЉРµРєС‚ РєР°СЂС‚С‹
 
 
-    public Sprite backSprite; // Спрайт рубашки
-    public SpriteRenderer spriteRenderer; // Ссылка на компонент SpriteRenderer
+    public Sprite backSprite; // РЎРїСЂР°Р№С‚ СЂСѓР±Р°С€РєРё
+    public SpriteRenderer spriteRenderer; // РЎСЃС‹Р»РєР° РЅР° РєРѕРјРїРѕРЅРµРЅС‚ SpriteRenderer
     //private Image cardImage;
 
-    public Color backColor = Color.black; // Цвет для рубашки карты
+    public Color backColor = Color.black; // Р¦РІРµС‚ РґР»СЏ СЂСѓР±Р°С€РєРё РєР°СЂС‚С‹
 
-    private bool isFlipped = false; // Флаг, указывающий, перевернута ли карта
-    private bool isClickable = true; // Флаг, указывающий, можно ли кликнуть на карту
+    private bool isFlipped = false; // Р¤Р»Р°Рі, СѓРєР°Р·С‹РІР°СЋС‰РёР№, РїРµСЂРµРІРµСЂРЅСѓС‚Р° Р»Рё РєР°СЂС‚Р°
+    private bool isClickable = true; // Р¤Р»Р°Рі, СѓРєР°Р·С‹РІР°СЋС‰РёР№, РјРѕР¶РЅРѕ Р»Рё РєР»РёРєРЅСѓС‚СЊ РЅР° РєР°СЂС‚Сѓ
     private CardManager cardManager;
 
     private void Awake()
@@ -71,7 +71,7 @@ public class cardLogic : MonoBehaviour
     {
         Debug.Log("Mouse down event detected on card.");
 
-        // Проверяем, можно ли кликнуть на карту и перевернуть её
+        // РџСЂРѕРІРµСЂСЏРµРј, РјРѕР¶РЅРѕ Р»Рё РєР»РёРєРЅСѓС‚СЊ РЅР° РєР°СЂС‚Сѓ Рё РїРµСЂРµРІРµСЂРЅСѓС‚СЊ РµС‘
         if (!isClickable || cardManager.CountFlippedCards() >= 2 || isFlipped)
         {
             return;
@@ -81,24 +81,24 @@ public class cardLogic : MonoBehaviour
         cardManager.AddFlippedCard(this);
     }
 
-    // Метод для переворота карты
+    // РњРµС‚РѕРґ РґР»СЏ РїРµСЂРµРІРѕСЂРѕС‚Р° РєР°СЂС‚С‹
     public void FlipCard()
     {
         if (!isFlipped)
         {
-            spriteRenderer.sprite = card.frontSprite; // Показываем лицевую сторону
+            spriteRenderer.sprite = card.frontSprite; // РџРѕРєР°Р·С‹РІР°РµРј Р»РёС†РµРІСѓСЋ СЃС‚РѕСЂРѕРЅСѓ
             Debug.Log("Card flipped to front.");
         }
         else
         {
-            spriteRenderer.sprite = backSprite; // Показываем рубашку
+            spriteRenderer.sprite = backSprite; // РџРѕРєР°Р·С‹РІР°РµРј СЂСѓР±Р°С€РєСѓ
             Debug.Log("Card flipped to back.");
         }
 
         isFlipped = !isFlipped;
     }
 
-    // Метод для блокировки кликов на карту
+    // РњРµС‚РѕРґ РґР»СЏ Р±Р»РѕРєРёСЂРѕРІРєРё РєР»РёРєРѕРІ РЅР° РєР°СЂС‚Сѓ
     public void SetClickable(bool clickable)
     {
         isClickable = clickable;
