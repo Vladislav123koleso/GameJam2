@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScoreManager : SingletonBase<ScoreManager>
 {
     private static int currentCountBananas = 0; // кол-во бананов
-    [SerializeField] private int allBananas = 12;
+    [SerializeField] private int allBananas;
 /*    private static List<Banana> bananas = new List<Banana>();*/
 
     [SerializeField] private TextMeshProUGUI currentCountBananasText;
