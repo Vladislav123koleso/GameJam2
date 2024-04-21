@@ -2,16 +2,29 @@ using UnityEngine;
 
 public class SettingsPanel : MonoBehaviour
 {
-    [SerializeField] private GameObject check;
+    [SerializeField] private GameObject checkCustom;
     private bool checkDraw = false;
+
+    [SerializeField] private GameObject checkFullScreen;
+    
+
 
     private void Start()
     {
         gameObject.SetActive(false);
 
+        if (!Screen.fullScreen)
+        {
+            checkFullScreen.SetActive(false);
+        }
+        else
+        {
+            checkFullScreen.SetActive(true);
+        }
+
         if (ScoreManager.Instance.SecretCustomOpen != true)
         {
-            check.SetActive(false);
+            checkCustom.SetActive(false);
         }
     }
     private void Update()
@@ -20,11 +33,24 @@ public class SettingsPanel : MonoBehaviour
         {
             if (ScoreManager.Instance.SecretCustomOpen == true)
             {
-                check.SetActive(true);
+                checkCustom.SetActive(true);
                 checkDraw = true;
             }
         }
+    }
 
+    public void FullScreen()
+    {
+        if (!Screen.fullScreen)
+        {
+            Screen.fullScreen = true;
+            checkFullScreen.SetActive(true);
+        }
+        else
+        {
+            Screen.fullScreen = false;
+            checkFullScreen.SetActive(false);
+        }
     }
 
     public void closePanel()
