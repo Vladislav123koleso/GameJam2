@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
     private cardLogic[] flippedCards = new cardLogic[2]; // Массив для хранения перевернутых карт
 
-
-    private int remainingCards; // Количество оставшихся карт
+    public int remainingCards; // Количество оставшихся карт
 
     void Start()
     {
-        remainingCards = GameObject.FindGameObjectsWithTag("Card").Length;
-        Debug.Log("кол-во карт " + remainingCards);
+        //remainingCards = 6;
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            remainingCards = 6;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            remainingCards = 12;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            remainingCards = 20;
+        }
+        //remainingCards = GameObject.FindGameObjectsWithTag("Card").Length;
+        //Debug.Log("кол-во карт " + remainingCards);
     }
 
     // Метод для добавления перевернутой карты в массив
@@ -67,6 +80,19 @@ public class CardManager : MonoBehaviour
             if (remainingCards <= 0)
             {
                 Debug.Log("УРА, ты прошел!");
+                if(SceneManager.GetActiveScene().buildIndex == 3)
+                {
+                    SceneManager.LoadScene(4);
+                }
+                else if(SceneManager.GetActiveScene().buildIndex == 4)
+                {
+                    SceneManager.LoadScene(5);
+                }
+                else if(SceneManager.GetActiveScene().buildIndex == 5)
+                {
+                    SceneManager.LoadScene(6);
+                }
+
             }
         }
         else
@@ -81,5 +107,11 @@ public class CardManager : MonoBehaviour
         {
             flippedCards[i] = null;
         }
+
+
+        
     }
+
+
+    
 }
