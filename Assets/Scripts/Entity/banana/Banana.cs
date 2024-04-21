@@ -6,7 +6,7 @@ public class Banana : MonoBehaviour
 {
     [SerializeField] private float speedRotation;
 
-    private void Awake()
+    private void Start()
     {
         ScoreManager.Instance.AddBananaInListAllBanans(this);
     }
