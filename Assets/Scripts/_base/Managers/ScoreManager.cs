@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ScoreManager : SingletonBase<ScoreManager>
 {
-    private int currentCountBananas = 0; // кол-во бананов
-    private int allBananas;
-    private static List<Banana> bananas = new List<Banana>();
+    private static int currentCountBananas = 0; // кол-во бананов
+    [SerializeField] private int allBananas = 12;
+/*    private static List<Banana> bananas = new List<Banana>();*/
 
     [SerializeField] private TextMeshProUGUI currentCountBananasText;
     [SerializeField] private TextMeshProUGUI allBananasText;
@@ -29,7 +29,6 @@ public class ScoreManager : SingletonBase<ScoreManager>
     {
         notificationPanel.SetActive(false);
         BananasPanel.SetActive(false);
-        allBananas = bananas.Count;
         currentCountBananasText.text = currentCountBananas.ToString();
         allBananasText.text = allBananas.ToString();
     }
@@ -83,9 +82,9 @@ public class ScoreManager : SingletonBase<ScoreManager>
         currentCountBananasText.text = currentCountBananas.ToString();
     }
 
-    public void AddBananaInListAllBanans(Banana banana)
+/*    public void AddBananaInListAllBanans(Banana banana)
     {
         bananas.Add(banana);
-    }
+    }*/
 
 }

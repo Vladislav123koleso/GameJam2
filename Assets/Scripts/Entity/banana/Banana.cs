@@ -6,10 +6,10 @@ public class Banana : MonoBehaviour
 {
     [SerializeField] private float speedRotation;
 
-    private void Start()
+/*    private void Start()
     {
         ScoreManager.Instance.AddBananaInListAllBanans(this);
-    }
+    }*/
     private void Update()
     {
         transform.Rotate(Vector3.up * speedRotation * Time.deltaTime);
