@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class ScoreManager : SingletonBase<ScoreManager>
 {
-    private static int currentCountBananas = 0; // кол-во бананов
     [SerializeField] private int allBananas;
-/*    private static List<Banana> bananas = new List<Banana>();*/
+
+    private static int CurrentCountBananas; // кол-во бананов
+    private static int AllBananas;
+
+    /*    private static List<Banana> bananas = new List<Banana>();*/
 
     [SerializeField] private TextMeshProUGUI currentCountBananasText;
     [SerializeField] private TextMeshProUGUI allBananasText;
@@ -27,15 +30,16 @@ public class ScoreManager : SingletonBase<ScoreManager>
 
     private void Start()
     {
+        AllBananas = allBananas;
         notificationPanel.SetActive(false);
         BananasPanel.SetActive(false);
-        currentCountBananasText.text = currentCountBananas.ToString();
-        allBananasText.text = allBananas.ToString();
+        currentCountBananasText.text = CurrentCountBananas.ToString();
+        allBananasText.text = AllBananas.ToString();
     }
 
     private void Update()
     {
-        if (currentCountBananas >= allBananas)
+        if (CurrentCountBananas >= AllBananas)
         {
             secretCustomOpen = true;
             if (!notificationShow)
@@ -71,7 +75,7 @@ public class ScoreManager : SingletonBase<ScoreManager>
 
     public void AddCurrentCountBananas()
     {
-        currentCountBananas++;
+        CurrentCountBananas++;
         CountBanananShow = true;
         timer = 0;
         updateBananaScore();
@@ -79,7 +83,7 @@ public class ScoreManager : SingletonBase<ScoreManager>
 
     private void updateBananaScore()
     {
-        currentCountBananasText.text = currentCountBananas.ToString();
+        currentCountBananasText.text = CurrentCountBananas.ToString();
     }
 
 /*    public void AddBananaInListAllBanans(Banana banana)
