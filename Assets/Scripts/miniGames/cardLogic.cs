@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class Card
 {
+    
+
     public Sprite frontSprite; // Спрайт лицевой стороны карты
     //public Color frontColor;
     public bool isMatched; // Флаг, указывающий, совпала ли карта с другой
@@ -43,6 +45,7 @@ public class Card
 
 public class cardLogic : MonoBehaviour
 {
+
     public Card card; // Ссылка на объект карты
 
 
@@ -65,6 +68,7 @@ public class cardLogic : MonoBehaviour
         {
             Debug.LogError("Image component not found on the card!");
         }*/
+
     }
 
     private void OnMouseDown()

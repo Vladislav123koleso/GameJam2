@@ -33,6 +33,9 @@ using UnityEngine.UI;
 
 public class identicalCards : MonoBehaviour
 {
+    public LayoutManager layoutManager;
+
+
     public GameObject mapPrefab; // Префаб карты
     public RectTransform panel; // Панель, на которой будут располагаться карты
 
@@ -43,6 +46,10 @@ public class identicalCards : MonoBehaviour
 
     private int currentLevel; // Текущий уровень игрока
 
+   
+
+
+
     void Start()
     {
         // Получаем текущий уровень 
@@ -52,6 +59,8 @@ public class identicalCards : MonoBehaviour
 
         // Генерация карт на панели в зависимости от уровня
         GenerateMapForLevel(currentLevel);
+
+        layoutManager = GetComponent<LayoutManager>();
     }
 
     
@@ -74,23 +83,23 @@ public class identicalCards : MonoBehaviour
             case 2:
                 rows = 2;
                 columns = 3;
-                spacingX = 200f;
+                spacingX = 250f;
                 spacingY = 118f;
-                padding = new RectOffset(111, 0, 93, 0);
+                padding = new RectOffset(240 , 0, 60, 0);
                 break;
             case 3:
                 rows = 3;
                 columns = 4;
-                spacingX = 96f;
-                spacingY = 49f;
-                padding = new RectOffset(103, 0, 51, 0);
+                spacingX = 150f;
+                spacingY = 100f;
+                padding = new RectOffset(240, 0, 120, 0);
                 break;
             case 4:
                 rows = 4;
                 columns = 5;
-                spacingX = 72.5f;
-                spacingY = 19.3f;
-                padding = new RectOffset(60, 0, 32, 0);
+                spacingX = 120f;
+                spacingY = 70f;
+                padding = new RectOffset(280, 0, 160, 0);
                 break;
             default:
                 Debug.LogError("Unknown level: " + level);
@@ -147,8 +156,14 @@ public class identicalCards : MonoBehaviour
         Shuffle(cards);
         Debug.Log("Cards Shuffled");
 
+        // Вызываем метод LayoutCards через объект layoutManager
+        layoutManager.LayoutCards(cards, rows, columns,
+            mapPrefab.GetComponent<RectTransform>().sizeDelta.x,
+            mapPrefab.GetComponent<RectTransform>().sizeDelta.y,
+            spacingX, spacingY, padding);
+
         // Создание карт в сетке
-        for (int i = 0; i < rows; i++)
+        /*for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
@@ -173,7 +188,7 @@ public class identicalCards : MonoBehaviour
 
                 Debug.Log("Card Created: " + newMap.name);
             }
-        }
+        }*/
     }
 
 
