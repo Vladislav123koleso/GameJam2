@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SettingsPanel : MonoBehaviour
 {
@@ -6,8 +7,8 @@ public class SettingsPanel : MonoBehaviour
     private bool checkDraw = false;
 
     [SerializeField] private GameObject checkFullScreen;
-    
 
+    [SerializeField] private AudioMixer am;
 
     private void Start()
     {
@@ -22,16 +23,23 @@ public class SettingsPanel : MonoBehaviour
             checkFullScreen.SetActive(true);
         }
 
-        if (ScoreManager.Instance.SecretCustomOpen != true)
+       
+        
+        if (ScoreManager.Instance != null && ScoreManager.Instance.SecretCustomOpen == true)
+        {
+            checkCustom.SetActive(true);
+        }
+        else
         {
             checkCustom.SetActive(false);
         }
+
     }
     private void Update()
     {
         if (!checkDraw)
         {
-            if (ScoreManager.Instance.SecretCustomOpen == true)
+            if (ScoreManager.Instance != null && ScoreManager.Instance.SecretCustomOpen == true)
             {
                 checkCustom.SetActive(true);
                 checkDraw = true;
@@ -39,7 +47,7 @@ public class SettingsPanel : MonoBehaviour
         }
     }
 
-    public void FullScreen()
+    public void fullScreen()
     {
         if (!Screen.fullScreen)
         {
@@ -52,7 +60,10 @@ public class SettingsPanel : MonoBehaviour
             checkFullScreen.SetActive(false);
         }
     }
-
+    public void AudioVolume(float sliderValue)
+    {
+        am.SetFloat("MasterVolume", sliderValue);
+    }
     public void closePanel()
     {
         gameObject.SetActive(false);
