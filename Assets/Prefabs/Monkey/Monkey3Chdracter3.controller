@@ -22,7 +22,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1720936854327583921, guid: 96d72e0c06988f644b2c841c5a1b8b36, type: 3}
-  m_Tag: 
+  m_Tag: talk
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -80,7 +80,7 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
+  m_Name: talk
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: talk
@@ -91,9 +91,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 5.4500637
-  m_TransitionOffset: 0.06316737
-  m_ExitTime: 0.030803548
+  m_TransitionDuration: 4.1063347
+  m_TransitionOffset: 0
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

@@ -18,12 +18,16 @@ public class PlayerLogic : MonoBehaviour
     private float mouseY;
     private bool isJumping;
 
+    [SerializeField] private GameObject ViewMonkey;
+    [SerializeField] private GameObject ViewSecretCustom;
+
     private Animator animator;
+    [SerializeField] private RuntimeAnimatorController controllerAvatarSecretCustom;
+    [SerializeField] private Avatar avatarSecretCustom;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-
         rb = GetComponent<Rigidbody>();
         isJumping = false;
         jumpForce *= rb.mass;
@@ -31,6 +35,13 @@ public class PlayerLogic : MonoBehaviour
 
     private void Update()
     {
+        if (ScoreManager.Instance.SecretCustomOpen)
+        {
+            animator.runtimeAnimatorController = controllerAvatarSecretCustom;
+            ViewMonkey.SetActive(false);
+            ViewSecretCustom.SetActive(true);
+            animator.avatar = avatarSecretCustom;
+        }
         mouseX = Input.GetAxis("Mouse X") * cameraRotationSpeed;
         mouseY = Input.GetAxis("Mouse Y") * cameraRotationSpeed;
     }

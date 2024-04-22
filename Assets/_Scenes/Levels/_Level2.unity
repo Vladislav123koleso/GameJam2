@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 3
-  m_ReflectionIntensity: 0
+  m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
+  m_IndirectSpecularColor: {r: 0.10592145, g: 0.13257788, b: 0.18196405, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 2eac35ead8282a646915bc6f816683b6, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 6c04914f492d51e4ba18ff9ef1135a22, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 15b8299b616252142b30e6551242b7d5, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5383,25 +5383,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737265182}
   m_CullTransparentMesh: 1
---- !u!1 &1790428396 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5274215398602115184, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
-  m_PrefabInstance: {fileID: 5274215400306166940}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1790428406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790428396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6cd078e0c99446a6e631fc5b8de1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportPos:
-  - {fileID: 0}
 --- !u!1 &1836872585
 GameObject:
   m_ObjectHideFlags: 0
@@ -6892,6 +6873,10 @@ PrefabInstance:
       value: ScoreManager
       objectReference: {fileID: 0}
     - target: {fileID: 218452794466727804, guid: 3196faf1a2712124ea144c9bee9d22cb, type: 3}
+      propertyPath: allBananas
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 218452794466727804, guid: 3196faf1a2712124ea144c9bee9d22cb, type: 3}
       propertyPath: BananasPanel
       value: 
       objectReference: {fileID: 2029552012}
@@ -7248,6 +7233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneHelper
       objectReference: {fileID: 0}
+    - target: {fileID: 2959357779549883572, guid: c27490a4d6a5ba84f9cc2a90a9e5667b, type: 3}
+      propertyPath: _doNotDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2959357779549883573, guid: c27490a4d6a5ba84f9cc2a90a9e5667b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -7525,18 +7514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1755088150848796989, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5274215398602115176, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
       propertyPath: _panelInteraction
       value: 
       objectReference: {fileID: 1278098790}
-    - target: {fileID: 5274215398602115177, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 937009b8e22f4664986d734d02aeb722, type: 2}
     - target: {fileID: 5274215398602115180, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7580,10 +7561,6 @@ PrefabInstance:
     - target: {fileID: 5274215398602115180, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274215398602115181, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
-      propertyPath: textScore
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5274215398602115184, guid: 30340a6540540a049a6d9b8736c78b33, type: 3}
       propertyPath: m_Name
