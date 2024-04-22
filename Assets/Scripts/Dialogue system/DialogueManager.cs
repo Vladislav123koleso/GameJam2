@@ -19,6 +19,8 @@ public class DialogueManager : SingletonBase<DialogueManager>
 
     [SerializeField] private TextMeshProUGUI _textName;
 
+    public UnityEvent LoadPlayerStartDialogue;
+
     public UnityEvent EndDialogueEvent;
 
     public UnityEvent StartDialogueEvent;
@@ -35,7 +37,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
             Button buttonComponent = button.GetComponent<Button>();
             buttonComponent.onClick.AddListener(NextDialogue);
         }
-
+        LoadPlayerStartDialogue.Invoke();
         _exitButton.onClick.AddListener(ExitDisableDialoguePanel);
     }
 

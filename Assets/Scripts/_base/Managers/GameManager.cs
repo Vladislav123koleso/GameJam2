@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject pausePanel;
-    public GameObject settingsPanel;
+
 
     public static GameManager Instance { get; private set; }
 
@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pausePanel.SetActive(false);
-        settingsPanel.SetActive(false);
-
     }
 
     public bool CanFlipCard()

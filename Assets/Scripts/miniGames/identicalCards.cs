@@ -46,7 +46,7 @@ public class identicalCards : MonoBehaviour
     void Start()
     {
         // Получаем текущий уровень 
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        currentLevel = SceneManager.GetActiveScene().buildIndex - 1;
 
         Debug.Log("Current level: " + currentLevel); // Отладочный вывод
 
