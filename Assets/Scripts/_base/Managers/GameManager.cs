@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // ”ничтожаем дублирующиес€ экземпл€ры
         }
+
+
+
     }
 
     private void Start()
@@ -55,5 +58,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pausePanel.SetActive(true);
         }
+
+        
     }
 }
