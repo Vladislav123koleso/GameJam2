@@ -46,14 +46,10 @@ public class Card
 public class cardLogic : MonoBehaviour
 {
 
-    public Card card; // Ссылка на объект карты
 
-
+    public SpriteRenderer childSpriteRenderer; // Ссылка на компонент SpriteRenderer дочернего объекта
     public Sprite backSprite; // Спрайт рубашки
-    public SpriteRenderer spriteRenderer; // Ссылка на компонент SpriteRenderer
-    //private Image cardImage;
-
-    public Color backColor = Color.black; // Цвет для рубашки карты
+    public Card card; // Ссылка на объект карты
 
     private bool isFlipped = false; // Флаг, указывающий, перевернута ли карта
     private bool isClickable = true; // Флаг, указывающий, можно ли кликнуть на карту
@@ -61,20 +57,14 @@ public class cardLogic : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         cardManager = FindObjectOfType<CardManager>();
-        /*cardImage = GetComponent<Image>();
-        if(cardImage == null)
-        {
-            Debug.LogError("Image component not found on the card!");
-        }*/
 
+        // Получаем компонент SpriteRenderer дочернего объекта
+        childSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("Mouse down event detected on card.");
-
         // Проверяем, можно ли кликнуть на карту и перевернуть её
         if (!isClickable || cardManager.CountFlippedCards() >= 2 || isFlipped)
         {
@@ -90,13 +80,13 @@ public class cardLogic : MonoBehaviour
     {
         if (!isFlipped)
         {
-            spriteRenderer.sprite = card.frontSprite; // Показываем лицевую сторону
-            Debug.Log("Card flipped to front.");
+            // Показываем лицевую сторону путем установки спрайта дочернего объекта
+            childSpriteRenderer.sprite = card.frontSprite;
         }
         else
         {
-            spriteRenderer.sprite = backSprite; // Показываем рубашку
-            Debug.Log("Card flipped to back.");
+            // Удаляем спрайт дочернего объекта, чтобы вернуться к рубашке
+            childSpriteRenderer.sprite = null;
         }
 
         isFlipped = !isFlipped;
@@ -106,7 +96,6 @@ public class cardLogic : MonoBehaviour
     public void SetClickable(bool clickable)
     {
         isClickable = clickable;
-        Debug.Log("Clickable set to: " + clickable);
     }
 
 }
