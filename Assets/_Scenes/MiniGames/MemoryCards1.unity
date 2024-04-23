@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 1505442497}
   - component: {fileID: 1505442496}
   - component: {fileID: 1505442495}
+  - component: {fileID: 1505442499}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -545,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc811f1b46634641bd7212025ab507d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  remainingCards: 0
 --- !u!114 &1505442496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 0}
-  settingsPanel: {fileID: 0}
 --- !u!114 &1505442497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c34f15aedfe068408f39c4d97e7179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layoutManager: {fileID: 1505442499}
   mapPrefab: {fileID: 3193890378881241453, guid: aa81982984563564f9227113fc46d77a, type: 3}
   panel: {fileID: 402279737}
   gridContainer: {fileID: 327831249}
@@ -600,6 +602,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505442499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505442494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f558257253ac294eb3e4b86618b1bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 3193890378881241453, guid: aa81982984563564f9227113fc46d77a, type: 3}
+  panel: {fileID: 402279737}
 --- !u!1 &2056106114
 GameObject:
   m_ObjectHideFlags: 0
